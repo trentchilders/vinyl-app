@@ -1,0 +1,7 @@
+<% @records.each do |record|%>
+<p><img src=<%= record.image %>></p>
+<p id="artist"><%= record.artist %></p>
+<p id='title'> <%= record.title %></p>
+<p id='price'><%= record.price %></p>
+<p id='description'><%= record.description %></p>
+<% end %>
