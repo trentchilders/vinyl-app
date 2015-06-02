@@ -4,8 +4,9 @@
 <p id='title_id'> <%= record.title %></p>
 <p id='price_id'><%= record.price %></p>
 <p id='description_id'><%= record.description %></p>
+<%= link_to "Edit Record", "/records/#{record.id}/edit" %>
+<%= link_to "Delete Record", "/records/#{record.id}", method: :delete %>
 <hr>
-
 
 <% end %>
 

@@ -31,4 +31,10 @@ class PagesController < ApplicationController
     @record.update(image: params[:image], artist: params[:artist], title: params[:title], price: params[:price], description: params[:description])
   end
 
+  def destroy
+    record_id = params[:id]
+    @record = Record.find_by(id: record_id)
+    @record.destroy
+  end
+
 end
