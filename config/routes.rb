@@ -4,4 +4,6 @@ Rails.application.routes.draw do
  get "/records/new" => 'pages#new'
  get "records/:id" => 'pages#show'
  post '/records' => 'pages#create'
+ get '/records/:id/edit' => 'pages#edit' 
+ patch "records/:id" => 'pages#update'
 end
