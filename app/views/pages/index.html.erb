@@ -1,5 +1,5 @@
 <% @records.each do |record|%>
-<a href="/records/<%= record.id %>" ><p><img src=<%= record.image %>></p></a>
+<a href="/records/<%= record.id %>" ><p><img src="<%= record.image %>" width="300"></p></a>
 <p id="artist_id"><%= record.artist %></p>
 <p id='title_id'> <%= record.title %></p>
 <p id='price_id'><%= record.price %></p>

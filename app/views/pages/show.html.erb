@@ -1,5 +1,9 @@
 <h1><img src="<%= @record.image %>"></h1>
 <h1><%= @record.artist %></h1>
 <h1><%= @record.title %></h1>
-<h1><%= @record.price %></h1>
 <h1><%= @record.description %></h1>
+<p>Last updated: <%= @record.friendly_updated_at %></p>
+<h1><%= number_to_currency(@record.price) %>    <%=@record.sale_message%></h1>
+<h1>tax: <%= number_to_currency(@record.taxify) %></h1>
+<h1>total: <%= number_to_currency(@record.totalify) %></h1>
+<a href='/'>Home</a>

@@ -17,8 +17,9 @@ class PagesController < ApplicationController
   end
 
   def create
-    Record.create(image: params[:image], artist: params[:artist], title: params[:title], price: params[:price], description: params[:description])
-    redirect_to "/records"
+    record = Record.create(image: params[:image], artist: params[:artist], title: params[:title], price: params[:price], description: params[:description])
+      flash[:info] = "Did it."
+    redirect_to "/records/#{record.id}"
   end
 
   def edit
@@ -30,6 +31,7 @@ class PagesController < ApplicationController
     record_id = params[:id]
     @record = Record.find_by(id: record_id)
     @record.update(image: params[:image], artist: params[:artist], title: params[:title], price: params[:price], description: params[:description])
+    flash[:info] = "Updated yo."
     redirect_to "/records/#{record_id}"
   end
 
@@ -37,6 +39,7 @@ class PagesController < ApplicationController
     record_id = params[:id]
     @record = Record.find_by(id: record_id)
     @record.destroy
+    flash[:warning] = "It's gone, man."
     redirect_to "/records"
   end
 
