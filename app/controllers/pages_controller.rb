@@ -5,6 +5,16 @@ class PagesController < ApplicationController
 
   def index
     @records=Record.all
+    random_rec = rand(1..9)
+    if params[:sort_asc]
+      @records = Record.order(params[:sort_asc])
+    elsif params[:sort_desc]
+      @records = Record.order(params[:sort_desc] => :desc)
+    elsif params[:random]
+      redirect_to "/records/#{random_rec}"
+    elsif params[:discount]
+      @records = Record.where('price < ?', 10 )
+    end
     
   end
 
