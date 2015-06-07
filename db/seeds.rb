@@ -1,7 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Record.create!([
+  {image: "http://upload.wikimedia.org/wikipedia/en/b/bb/PetSoundsCover.jpg", title: "Pet Sounds", artist: "The Beach Boys", price: "100.0", description: "This Beach Boys classic was arranged and produced by irascible frontman Brian Wilson. It heralded in the age of making an album as a unifying whole work, rather than a collection of songs."},
+  {image: "https://upload.wikimedia.org/wikipedia/en/8/8e/Cover_contra.jpg", title: "Contra", artist: "Vampire Weekend", price: "20.0", description: "Vampire Weekend's second album received critical acclaim and brought the quartet into the realm of international fame. But don't let that intimidate you. It's a grand album full of catchy hooks and introspective lyrics. "},
+  {image: "http://upload.wikimedia.org/wikipedia/en/4/4d/Vampire_Weekend_-_Modern_Vampires_of_the_City.png", title: "Modern Vampires of the City", artist: "Vampire Weekend", price: "20.0", description: "A masterpiece of African rhythms coupled with introspective lyrics and catchy loops."},
+  {image: "http://upload.wikimedia.org/wikipedia/en/3/33/Cat_Power_The_Greatest.png", title: "The Greatest", artist: "Cat Power", price: "20.0", description: "Not a greatest hits! But it might as well be. Chan Marshall travelled to Memphis to records with legendary blues artists to put together this gem."},
+  {image: "http://upload.wikimedia.org/wikipedia/en/e/e2/GZALiquidSwords.jpg", title: "Liquid Swords", artist: "GZA", price: "20.0", description: "After '36 Chambers' the Wu-Tang Clan diverged to create some of the most interesting hip hop ever recorded. This was arguably the best of the bunch. Produced by RZA and carries his signature kung fu style. Epic."},
+  {image: "http://upload.wikimedia.org/wikipedia/en/1/11/Theres_Nothing_Wrong_With_Love.jpg", title: "There's Nothing Wrong With Love", artist: "Built to Spill", price: "20.0", description: "Pacific Northwestern guitar virtuoso Doug Martsch achieved his first bit of recognition with this excellent album. "},
+  {image: "http://upload.wikimedia.org/wikipedia/en/4/47/WilcoYankeeHotelFoxtrot.jpg", title: "Yankee Hotel Foxtrot", artist: "Wilco", price: "20.0", description: "It's amazing that Wilco was dropped from their label as a result of this album. It's a truly remarkable work that revolves around frontman Jeff Tweedy's interest in the Conet Project. Look that up! "},
+  {image: "http://upload.wikimedia.org/wikipedia/en/2/23/IntroducingtheBeatles.jpg", title: "Introducing....The Beatles", artist: "The Beatles", price: "150.0", description: "First US release of English pop sensations The Beatles. This album single handedly revolutionized pop music forever."},
+  {image: "", title: "Greatest Hits", artist: "Weird Al Yankovich", price: "1.0", description: "We're practically giving it away."}
+])

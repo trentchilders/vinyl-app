@@ -14,13 +14,13 @@
 ActiveRecord::Schema.define(version: 20150605010144) do
 
   create_table "records", force: :cascade do |t|
-    t.string   "image"
-    t.string   "title"
-    t.string   "artist"
-    t.decimal  "price",       precision: 7, scale: 2
-    t.text     "description"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "image",       limit: 255
+    t.string   "title",       limit: 255
+    t.string   "artist",      limit: 255
+    t.decimal  "price",                     precision: 7, scale: 2
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
   end
 
 end
