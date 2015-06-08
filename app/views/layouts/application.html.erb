@@ -27,7 +27,7 @@
         <li class="active"><a href="/records?sort_asc=price">Price:Low to High <span class="sr-only">(current)</span></a></li>
         <li class='active'> <a href="/records?sort_desc=price">Price: High to Low</a></li>
         <li class='active'> <a href="/records?random=id">Random</a></li>
-        <li class='active'> <a href="/records?discount">Discount Items</a></li>
+        <li class='active'> <a href="/records?discount=price">Discount Items</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -63,6 +63,14 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<div>
+  <%= form_tag '/search', method: :post do%>
+  <%= label_tag :search%>
+  <%= text_field_tag :search%>
+  <%= submit_tag "Search"%>
+  <% end %>
+</div>
 
 <div class='container'>
 

@@ -53,4 +53,9 @@ class PagesController < ApplicationController
     redirect_to "/records"
   end
 
+  def search
+    search_term = params[:search]
+    @records = Record.where("artist like ?", "%#{search_term}%")
+    render :index
+  end
 end
