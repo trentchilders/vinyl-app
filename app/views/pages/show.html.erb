@@ -1,9 +1,12 @@
-<h1><img src="<%= @record.image %>"></h1>
+<% @record.images.each do |image|%>
+       <h1> <img src="<%= image.image %>"></h1>
+        <% end %>
 <h1><%= @record.artist %></h1>
 <h1><%= @record.title %></h1>
 <h1><%= @record.description %></h1>
-<p>Last updated: <%= @record.friendly_updated_at %></p>
 <h1><%= number_to_currency(@record.price) %>    <%=@record.sale_message%></h1>
 <h1>tax: <%= number_to_currency(@record.taxify) %></h1>
 <h1>total: <%= number_to_currency(@record.totalify) %></h1>
+<h1>Supplier: <%=@record.supplier.name %></h1>
+<p>Last updated: <%= @record.friendly_updated_at %></p>
 <a href='/'>Home</a>
