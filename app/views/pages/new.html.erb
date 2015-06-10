@@ -1,12 +1,17 @@
 <h1> Add a new record </h1>
 
 <%= form_tag '/records', method: :post do%>
-  
+
   <div>
-    <%= label_tag :image %>
-    <%= text_field_tag :image %>
+      <%= label_tag :image_1 %>
+      <%= text_field_tag :image_1 %>
   </div>
 
+  <div>
+      <%= label_tag :image_2 %>
+      <%= text_field_tag :image_2 %>
+  </div>
+ 
   <div>
     <%= label_tag :artist %>
     <%= text_field_tag :artist %>

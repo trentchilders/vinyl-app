@@ -48,7 +48,9 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+        <li><%= link_to "Sign Up", "/users/sign_up", method: :get if !current_user %></li>
+        <li><%= link_to "Sign Out", "/users/sign_out", method: :delete if current_user %></li>
+        <li><%= link_to "Sign In", "/users/sign_in", method: :get if !current_user %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">

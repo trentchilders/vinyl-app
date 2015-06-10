@@ -2,10 +2,6 @@
 
 <%= form_tag "/records/#{@record.id}", method: :patch do%>
   
-  <div>
-    <%= label_tag :image %>
-    <%= text_field_tag :image, @record.image %>
-  </div>
 
   <div>
     <%= label_tag :artist %>
@@ -16,6 +12,16 @@
   <div>
       <%= label_tag :title %>
       <%= text_field_tag :title, @record.title%>
+  </div>
+
+  <div>
+      <%= label_tag :image_1 %>
+      <%= text_field_tag :image_1, @image[0].image%>
+  </div>
+
+  <div>
+      <%= label_tag :image_2 %>
+      <%= text_field_tag :image_2, @image[1].image%>
   </div>
 
   <div>

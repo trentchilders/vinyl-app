@@ -27,7 +27,9 @@ class PagesController < ApplicationController
   end
 
   def create
-    record = Record.create(image: params[:image], artist: params[:artist], title: params[:title], price: params[:price], description: params[:description])
+    record = Record.create(artist: params[:artist], title: params[:title], price: params[:price], description: params[:description])
+    Image.create(record_id: record.id, image: params[:image_1]) if :image_1 != ''
+    Image.create(record_id: record.id, image: params[:image_2]) if :image_2 != ''
       flash[:info] = "Did it."
     redirect_to "/records/#{record.id}"
   end
@@ -35,6 +37,7 @@ class PagesController < ApplicationController
   def edit
     record_id = params[:id]
     @record = Record.find_by(id: record_id)
+    @image = @record.images
   end
 
   def update
