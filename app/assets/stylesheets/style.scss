@@ -1,4 +1,114 @@
 body {
+  border-style: solid;
+  border-width: 10px;
+  border-color: green;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  background-color: #EBF5FF;
+  padding-top: 0px;
+  padding-bottom: 20px;
   font-family: Tahoma,Verdana,Segoe,sans-serif;
   background-image: url('swirl_pattern.png');
+  
 }
+
+p {
+  text-align: center;
+  color: green;
+}
+
+img {
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+#artist_id {
+  color: green;
+  font-size: 30px;
+}
+
+#title_id {
+  color: green;
+  font-size: 25px;
+}
+
+#description_id {
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+hr {
+  height: 7px;
+  border-style: solid;
+  // border-width: 5px;
+  border-color: inherit;
+  background-color: green;
+
+}
+
+// Navbar start
+
+.navbar-default {
+  background-color: #008000;
+  border-color: #095409;
+}
+.navbar-default .navbar-brand {
+  color: #d8e508;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: #d8e508;
+}
+.navbar-default .navbar-text {
+  color: #d8e508;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #d8e508;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #d8e508;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #d8e508;
+  background-color: #095409;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #d8e508;
+  background-color: #095409;
+}
+.navbar-default .navbar-toggle {
+  border-color: #095409;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #095409;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #d8e508;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #d8e508;
+}
+.navbar-default .navbar-link {
+  color: #d8e508;
+}
+.navbar-default .navbar-link:hover {
+  color: #d8e508;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #d8e508;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #d8e508;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #d8e508;
+    background-color: #095409;
+  }
+}
+
+// Navbar end
