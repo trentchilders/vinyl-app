@@ -9,4 +9,13 @@
 <h1>total: <%= number_to_currency(@record.totalify) %></h1>
 <h1>Supplier: <%=@record.supplier.name if @record.supplier%></h1>
 <p>Last updated: <%= @record.friendly_updated_at %></p>
+
+<%= form_tag '/orders', method: :post do%>
+<%= label_tag :quantity %>
+<%= text_field_tag :quantity %>
+<%= label_tag :record_id %>
+<%= text_field_tag :record_id, @record.id %>
+<%= submit_tag "Buy Now!" %>
+<% end %>
+
 <a href='/'>Home</a>
