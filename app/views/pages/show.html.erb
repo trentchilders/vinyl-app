@@ -14,7 +14,7 @@
 <%= label_tag :quantity %>
 <%= text_field_tag :quantity %>
 <%= label_tag :record_id %>
-<%= text_field_tag :record_id, @record.id %>
+<%= hidden_field_tag :record_id, @record.id %>
 <%= submit_tag "Buy Now!" %>
 <% end %>
 
