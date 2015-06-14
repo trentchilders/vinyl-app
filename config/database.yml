@@ -47,8 +47,10 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
 production:
-  <<: *default
-  database: vinyl-app_production
-  username: mysql
-  password: <%= ENV['MYSQL_DATABASE_PASSWORD'] %>
+  database: vinyl-app-production
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
