@@ -4,7 +4,7 @@ class CreateRecords < ActiveRecord::Migration
       t.string :image
       t.string :title
       t.string :artist
-      t.string :price
+      t.decimal :price, precision: 7, scale: 2
       t.string :description
 
       t.timestamps null: false
