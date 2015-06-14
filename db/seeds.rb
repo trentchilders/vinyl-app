@@ -1,7 +1,3 @@
-User.create!([
-  {email: "trent65@msn.com", encrypted_password: "$2a$10$bgNJPLILgMv2rQ1JEsGAjOt013DAXvSkiiRUE7crTmknaE8dpqIJO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 5, current_sign_in_at: "2015-06-12 03:36:39", last_sign_in_at: "2015-06-11 02:01:35", current_sign_in_ip: "::1", last_sign_in_ip: "::1"},
-  {email: "test@test.com", encrypted_password: "$2a$10$hmwwhXdpQekWlGwJiV6V1u3J9qHksmKqcDaUAra0FWxDSoB.qZZwi", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-06-12 03:35:37", last_sign_in_at: "2015-06-12 03:35:37", current_sign_in_ip: "::1", last_sign_in_ip: "::1"}
-])
 Image.create!([
   {image: "http://upload.wikimedia.org/wikipedia/en/b/bb/PetSoundsCover.jpg", record_id: "1"},
   {image: "https://upload.wikimedia.org/wikipedia/en/8/8e/Cover_contra.jpg", record_id: "2"},
