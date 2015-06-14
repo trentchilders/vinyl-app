@@ -1,5 +1,5 @@
 <% @records.each do |record|%>
-  <% if @records.images.any? %>
+  <% if record.images.any? %>
     <a href="/records/<%= record.id %>" ><p><img src="<%= record.images.first.image%>" width="300"></p></a>
   <% end %>
 <p id="artist_id"><%= record.artist %></p>
