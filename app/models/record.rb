@@ -2,6 +2,7 @@ class Record < ActiveRecord::Base
   belongs_to :supplier
   has_many :images
   has_many :orders
+  has_many :categorized_products
 
   def friendly_updated_at
     updated_at.strftime('%B %d, %Y')
