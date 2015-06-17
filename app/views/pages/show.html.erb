@@ -5,17 +5,20 @@
 <h1><%= @record.title %></h1>
 <h1><%= @record.description %></h1>
 <h1><%= number_to_currency(@record.price) %>    <%=@record.sale_message%></h1>
+<% @record.categories.each do |category| %>
+<h1>Genre: <%= category.name %></h1>
+<% end %>
 <h1>tax: <%= number_to_currency(@record.taxify) %></h1>
 <h1>total: <%= number_to_currency(@record.totalify) %></h1>
 <h1>Supplier: <%=@record.supplier.name if @record.supplier%></h1>
 <p>Last updated: <%= @record.friendly_updated_at %></p>
 
-<%= form_tag '/orders', method: :post do%>
+<%= form_tag '/cart', method: :post do%>
 <%= label_tag :quantity %>
 <%= text_field_tag :quantity %>
 <%= label_tag :record_id %>
 <%= hidden_field_tag :record_id, @record.id %>
-<%= submit_tag "Buy Now!" %>
+<%= submit_tag "Add to Cart" %>
 <% end %>
 
 <a href='/'>Home</a>

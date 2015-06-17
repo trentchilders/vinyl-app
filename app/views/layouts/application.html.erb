@@ -31,7 +31,10 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
+            
+            <% Category.all.each do |category|%>
+              <li><a href="/records?category=<%= category.name %>"><%= category.name%></a></li>
+            <% end %>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li class="divider"></li>
@@ -51,10 +54,11 @@
         <li><%= link_to "Sign Up", "/users/sign_up", method: :get if !current_user %></li>
         <li><%= link_to "Sign Out", "/users/sign_out", method: :delete if current_user %></li>
         <li><%= link_to "Sign In", "/users/sign_in", method: :get if !current_user %></li>
+        <li><%= link_to "Cart", "/cart", method: :get %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
+            <li><a href='#'>something</a></li>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li class="divider"></li>

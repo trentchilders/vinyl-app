@@ -1,0 +1,12 @@
+
+<% @carted_records.each do |record| %>
+  <p><%= record.record.title %></p>
+  <p><%= record.record.artist %></p>
+  <p> <%= number_to_currency(record.record.price) %></p>
+  <p> <%= link_to "Remove Item?", "/cart/#{record.id}", method: :delete %></p>
+  <hr>
+<% end %>
+
+<%= form_tag '/orders', method: :post do %>
+  <%= submit_tag "Buy Now!" %>
+  <% end %>

@@ -16,6 +16,10 @@ class PagesController < ApplicationController
       @records = Record.where('price < ?', 10 )
     end
     
+    if params[:category]
+      @records = Category.find_by(name: params[:category]).records
+    end
+    
   end
 
   def show

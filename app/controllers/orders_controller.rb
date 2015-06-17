@@ -1,13 +1,22 @@
 class OrdersController < ApplicationController
   def create
-    quantity = params[:quantity].to_i
-    price = Record.find_by(id: params[:record_id]).price
+    cart = CartedProduct.where(status: 'carted')
+    order = Order.create
     
-    order = Order.new(quantity: params[:quantity], user_id: current_user.id, record_id: params[:record_id],)
-    order.sub_total = order.calculate_subtotal(price)
-    order.tax = order.calculate_tax(price)
-    order.total = order.calculate_total(price)
-    order.save
+    @subtotal = 0
+    cart.each do |carted_product|
+      @subtotal += carted_product.calculate_subtotal(carted_product.record.price)
+    end
+
+    tax = @subtotal * 0.09
+
+    total = @subtotal + tax
+
+    cart.update_all(order_id: order.id, status: "confirmed")
+    Order.find_by(id: order.id).update(user_id: current_user.id, sub_total: @subtotal, tax: tax, total: total)
+    
+
+
     redirect_to "/orders/#{order.id}"
   end
 
