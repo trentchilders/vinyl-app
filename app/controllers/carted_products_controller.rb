@@ -6,10 +6,6 @@ class CartedProductsController < ApplicationController
     price = Record.find_by(id: params[:record_id]).price
     
     cart = CartedProduct.new(quantity: params[:quantity], user_id: current_user.id, record_id: params[:record_id], status: "carted")
-    # order.sub_total = order.calculate_subtotal(price)
-    # order.tax = order.calculate_tax(price)
-    # order.total = order.calculate_total(price)
-    # order.save
     cart.save
     redirect_to "/records"
   end
