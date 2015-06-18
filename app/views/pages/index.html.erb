@@ -12,8 +12,10 @@
               <p id='title_id'> <%= record.title %></p>
               <p id='price_id'><%= number_to_currency(record.price) %></p>
               <p id='description_id'><%= record.description %></p>
+              <% if user_signed_in? && current_user.admin %>
               <%= link_to "Edit Record", "/records/#{record.id}/edit" %>
               <%= link_to "Delete Record", "/records/#{record.id}", method: :delete %>
+              <% end %>
               <hr>
 
               </div>
@@ -24,4 +26,6 @@
 
 </section>
 
+<% if user_signed_in? && current_user.admin %>
 <%= link_to "Add New Record", '/records/new' %>
+<% end %>

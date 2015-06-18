@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show, :search]
 
   def home
   end
@@ -28,23 +29,32 @@ class PagesController < ApplicationController
   end
 
   def new
+    
   end
 
   def create
+     
+    
+
     record = Record.create(artist: params[:artist], title: params[:title], price: params[:price], description: params[:description])
     Image.create(record_id: record.id, image: params[:image_1]) if :image_1 != ''
     Image.create(record_id: record.id, image: params[:image_2]) if :image_2 != ''
       flash[:info] = "Did it."
     redirect_to "/records/#{record.id}"
+  
+    
+
   end
 
   def edit
+    
     record_id = params[:id]
     @record = Record.find_by(id: record_id)
     @image = @record.images
   end
 
   def update
+    
     record_id = params[:id]
     @record = Record.find_by(id: record_id)
     @record.update(image: params[:image], artist: params[:artist], title: params[:title], price: params[:price], description: params[:description])
@@ -53,6 +63,7 @@ class PagesController < ApplicationController
   end
 
   def destroy
+    
     record_id = params[:id]
     @record = Record.find_by(id: record_id)
     @record.destroy
@@ -65,4 +76,13 @@ class PagesController < ApplicationController
     @records = Record.where("artist like ?", "%#{search_term}%")
     render :index
   end
+
+  private
+
+  def authenticate_admin!
+    if user_signed_in? && !current_user.admin
+      redirect_to '/'
+    end
+  end
+
 end

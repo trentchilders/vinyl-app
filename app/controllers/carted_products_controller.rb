@@ -1,5 +1,5 @@
 class CartedProductsController < ApplicationController
-
+  before_action :authenticate_user!
 
   def create
     quantity = params[:quantity].to_i
