@@ -13,6 +13,12 @@ class CartedProductsController < ApplicationController
   def index
     @user = User.find_by(id: current_user.id)
     @carted_records = @user.carted_products.where(status: 'carted')
+    
+    if @carted_records.empty?
+      redirect_to '/'
+      flash[:info] = "Your cart is empty"
+    end
+
   end
 
   def destroy

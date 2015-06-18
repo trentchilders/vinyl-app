@@ -1,4 +1,14 @@
+
+<h1> Thank you for your order! </h1>
+
 <p> Order ID: <%= @order.id %></p>
 <p> Subtotal: <%= number_to_currency(@order.sub_total) %> </p>
 <p> Tax: <%= number_to_currency(@order.tax) %> </p>
 <p> Total: <%= number_to_currency(@order.total) %> </p>
+
+<% @order.carted_products.each do | carted_product| %>
+
+  <h6><%= carted_product.record.artist%></h6>
+  <h6><%= carted_product.record.title%></h6>
+  <h6> Quantity: <%= carted_product.quantity %></h6>
+<% end %>
