@@ -3,6 +3,9 @@ class CartedProduct < ActiveRecord::Base
   belongs_to :user
   belongs_to :record
 
+  validates :quantity, presence: true
+  validates :quantity, numericality: { greater_than: 0  }
+  validates :quantity, numericality: { only_integer: true }
 
   def calculate_subtotal(price)
     quantity * price

@@ -1,3 +1,15 @@
+<% if @cart && @cart.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@cart.errors.count, "error") %> prohibited this record from being added:</h2>
+ 
+    <ul>
+    <% @cart.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <% @record.images.each do |image|%>
        <h1> <img src="<%= image.image %>"></h1>
         <% end %>

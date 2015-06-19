@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
-  before action :authenticate_user!
-  
+  before_action :authenticate_user!
+
   def create
     cart = CartedProduct.where(status: 'carted')
     order = Order.create

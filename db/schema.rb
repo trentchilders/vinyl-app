@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618013935) do
+ActiveRecord::Schema.define(version: 20150618144154) do
 
   create_table "carted_products", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -44,11 +44,8 @@ ActiveRecord::Schema.define(version: 20150618013935) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "quantity",   limit: 4
-    t.integer  "record_id",  limit: 4
     t.integer  "user_id",    limit: 4
     t.decimal  "total",                precision: 8, scale: 2
-    t.decimal  "decimal",              precision: 8, scale: 2
     t.decimal  "tax",                  precision: 8, scale: 2
     t.decimal  "sub_total",            precision: 8, scale: 2
     t.datetime "created_at",                                   null: false

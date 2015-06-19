@@ -7,6 +7,12 @@ class Record < ActiveRecord::Base
   has_many :carted_products
   has_many :orders, through: :carted_products
 
+  validates :title, presence: true
+  validates :artist, presence: true
+  validates :price, presence: true, numericality: true
+  validates :description, presence: true
+   
+
   def friendly_updated_at
     updated_at.strftime('%B %d, %Y')
   end

@@ -29,18 +29,21 @@ class PagesController < ApplicationController
   end
 
   def new
-    
+    @record = Record.new
   end
 
   def create
      
-    
-
-    record = Record.create(artist: params[:artist], title: params[:title], price: params[:price], description: params[:description])
-    Image.create(record_id: record.id, image: params[:image_1]) if :image_1 != ''
-    Image.create(record_id: record.id, image: params[:image_2]) if :image_2 != ''
-      flash[:info] = "Did it."
-    redirect_to "/records/#{record.id}"
+       
+    @record = Record.new(artist: params[:artist], title: params[:title], price: params[:price], description: params[:description])
+      if @record.save
+        Image.create(record_id: record.id, image: params[:image_1]) if :image_1 != ''
+        Image.create(record_id: record.id, image: params[:image_2]) if :image_2 != ''
+        flash[:info] = "Did it."
+        redirect_to "/records/#{record.id}"
+      else
+        render '/pages/new'
+      end
   
     
 

@@ -3,6 +3,7 @@ class Order < ActiveRecord::Base
   has_many :carted_products
   has_many :records, through: :carted_products
 
+  validates :user_id, presence: true, numericality: true
 
   def calculate_subtotal(price)
     quantity * price

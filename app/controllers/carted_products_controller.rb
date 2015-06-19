@@ -5,9 +5,15 @@ class CartedProductsController < ApplicationController
     quantity = params[:quantity].to_i
     price = Record.find_by(id: params[:record_id]).price
     
-    cart = CartedProduct.new(quantity: params[:quantity], user_id: current_user.id, record_id: params[:record_id], status: "carted")
-    cart.save
-    redirect_to "/records"
+    @cart = CartedProduct.new(quantity: params[:quantity], user_id: current_user.id, record_id: params[:record_id], status: "carted")
+    @record = Record.find_by(id: params[:record_id])
+    if @cart.save
+      redirect_to "/records"
+    else
+      render '/pages/show'
+      
+    end
+
   end
 
   def index

@@ -1,3 +1,15 @@
+<% if @record && @record.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@record.errors.count, "error") %> prohibited this article from being saved:</h2>
+ 
+    <ul>
+    <% @record.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h1> Add a new record </h1>
 
 <%= form_tag '/records', method: :post do%>
@@ -14,23 +26,23 @@
  
   <div>
     <%= label_tag :artist %>
-    <%= text_field_tag :artist %>
+    <%= text_field_tag :artist, @record.artist  %>
 
   </div>
 
   <div>
       <%= label_tag :title %>
-      <%= text_field_tag :title %>
+      <%= text_field_tag :title, @record.title %>
   </div>
 
   <div>
       <%= label_tag :price %>
-      <%= text_field_tag :price %>
+      <%= text_field_tag :price, @record.price%>
   </div>
 
   <div>
       <%= label_tag :description %>
-      <%= text_field_tag :description %>
+      <%= text_field_tag :description, @record.description %>
   </div>
 
 
