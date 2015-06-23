@@ -45,6 +45,15 @@
       <%= text_field_tag :description, @record.description %>
   </div>
 
+  <div>
+    <% @categories.each do |category| %>
+    <%= check_box_tag(category.name, category.id)%>
+    <%= label_tag(category.name, category.name) %>
+    <% end %>
+  </div>
+  <div>
+  <%= collection_select :supplier, :supplier_id, Supplier.all, :id, :name %>
+  </div>
 
 
 <%= submit_tag "Add Record"%>

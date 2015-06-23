@@ -1,0 +1,21 @@
+<h1> Suppliers </h1>
+
+<% @suppliers.each do |supplier| %>
+  <div>
+  <p> Name:
+  <%= supplier.name %>
+  </p>
+  </div>
+  <div>
+  <p>
+  email
+  <%= supplier.email %>
+  </p>
+  </div>
+  <div>
+  <p>
+  Phone
+  <%= supplier.phone%>
+  </p>
+  </div>
+<%end%>

@@ -29,22 +29,32 @@ class PagesController < ApplicationController
   end
 
   def new
-    @record = Record.new
+     @record = Record.new
+     @categories = Category.all
   end
 
   def create
      
-       
-    @record = Record.new(artist: params[:artist], title: params[:title], price: params[:price], description: params[:description])
+    @categories = Category.all
+
+    @record = Record.new(artist: params[:artist], title: params[:title], price: params[:price], description: params[:description], supplier_id: params[:supplier][:supplier_id], )
       if @record.save
-        Image.create(record_id: record.id, image: params[:image_1]) if :image_1 != ''
-        Image.create(record_id: record.id, image: params[:image_2]) if :image_2 != ''
+        Image.create(record_id: @record.id, image: params[:image_1]) if :image_1 != ''
+        Image.create(record_id: @record.id, image: params[:image_2]) if :image_2 != ''
+        puts params[:category]
+        @categories.each do |category|
+          if params[category.name]
+          CategorizedProduct.create(record_id: @record.id, category_id: params[category.name])
+          end 
+        end
         flash[:info] = "Did it."
-        redirect_to "/records/#{record.id}"
+        redirect_to "/records/#{@record.id}"
       else
         render '/pages/new'
       end
   
+  
+    
     
 
   end
