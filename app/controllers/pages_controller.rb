@@ -52,25 +52,36 @@ class PagesController < ApplicationController
       else
         render '/pages/new'
       end
-  
-  
-    
-    
-
   end
 
   def edit
     
     record_id = params[:id]
     @record = Record.find_by(id: record_id)
-    @image = @record.images
+    @categories = Category.all
   end
 
   def update
-    
+    @categories = Category.all
+
     record_id = params[:id]
     @record = Record.find_by(id: record_id)
-    @record.update(image: params[:image], artist: params[:artist], title: params[:title], price: params[:price], description: params[:description])
+    images = Image.where(record_id: record_id)
+    @record.update(artist: params[:artist], title: params[:title], price: params[:price], description: params[:description])
+
+    images.each do |image|
+      image.update(image: params[:image])
+    end
+   
+    @categories.each do |category|
+      if params[category.name] && record_id == CategorizedProduct.find_by(record_id: record_id)
+        cat_product = CategorizedProduct.find_by(record_id: record_id)
+        cat_product.update(record_id: record_id, category_id: category.id)
+      elsif params[category.name]
+        CategorizedProduct.create(record_id: record_id, category_id: category.id)
+      end
+    end
+
     flash[:info] = "Updated yo."
     redirect_to "/records/#{record_id}"
   end

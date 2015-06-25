@@ -14,15 +14,15 @@
       <%= text_field_tag :title, @record.title%>
   </div>
 
-  <div>
-      <%= label_tag :image_1 %>
-      <%= text_field_tag :image_1, @image[0].image%>
-  </div>
 
   <div>
-      <%= label_tag :image_2 %>
-      <%= text_field_tag :image_2, @image[1].image%>
+      <% @record.images.each do |image| %>
+      <%= label_tag :image %>
+      <%= text_field_tag :image, image.image%>
+      <% end %>
   </div>
+
+  
 
   <div>
       <%= label_tag :price %>
@@ -34,5 +34,11 @@
       <%= text_field_tag :description, @record.description%>
   </div>
 
+   <div>
+      <% @categories.each do |category| %>
+      <%= check_box_tag(category.name, category.id)%>
+      <%= label_tag(category.name, category.name) %>
+      <% end %>
+  </div> 
 <%= submit_tag "Update Record"%>
 <% end %>
